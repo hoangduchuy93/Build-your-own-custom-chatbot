@@ -24,7 +24,11 @@ Plus, any hallucinated answers from the LLM can be easily traced and verified ag
 - This column is embedded and compared to the user question using cosine distance.
 - Distances are sorted in ascending order; shorter distances indicate more relevant contexts
 
-``` df['text'] = df['Name'] + " is " \
-+ df['Description'] + ". This character appears in the " \
-+ df['Medium'] + " in " + df['Setting'] ```
+![image](https://github.com/user-attachments/assets/a1504941-a6d0-4dc0-beb7-8575c149dab0)
+
+![image](https://github.com/user-attachments/assets/9e0ce3f7-892b-4367-a3b1-889e5fb1ceef)
+
+
+
+
 
