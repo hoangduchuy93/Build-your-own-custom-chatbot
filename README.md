@@ -29,6 +29,40 @@ Plus, any hallucinated answers from the LLM can be easily traced and verified ag
 ![image](https://github.com/user-attachments/assets/9e0ce3f7-892b-4367-a3b1-889e5fb1ceef)
 
 
+### 3. Custom Query Completion
+- Select the relevant contexts based on cosine distance.
+- Create the prompt template to instruct LLM to give answer based on given context. Also instruct how LLM should answer with out-of-scope question.
+
+![image](https://github.com/user-attachments/assets/55b8fd39-b5e8-4e1c-ba21-25b88a9b8e29)
 
 
+```
+def prompt_and_context(question, df, max_token_count):
+    """
+    Format the prompt template, add relevant contexts to guide chatbot to answer user questions.
+    This is no-shot example.
+    """
 
+    # Prompt template to instruct the chatbot
+    prompt_template = """
+    You are a smart assistant to answer the question based on provided context. \
+    If the question can not be answered based on the provided contexts, only say \ 
+    "The question is out of scope. Could you please check your question or ask another question". Do not try to \
+    answer the question out of the provide contexts.
+    Context: 
+
+    {}
+
+    ---
+
+    Question: {}
+    Answer:"""
+
+    # Get the relevant context
+    context = get_relevant_context(prompt_template = prompt_template, question = question, 
+                                   df = df, max_token_count = max_token_count)
+    # Format the prompt template
+    prompt_template = prompt_template.format("\n\n###\n\n".join(context), question)
+
+    return prompt_template
+```
