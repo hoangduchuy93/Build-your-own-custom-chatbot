@@ -101,13 +101,29 @@ This section evaluates our customized chatbot in two scenarios:
 
 - Question:
 
-![image](https://github.com/user-attachments/assets/deaeaa92-8405-4de4-87a4-a9436440f8c4)
+![image](https://github.com/user-attachments/assets/a4e97363-bc67-489e-83cb-f975734faa0c)
 
 - Openai answer (no contexts provided, Openai can not find the answer)
 ![image](https://github.com/user-attachments/assets/895f797e-b59d-4273-8957-24efa39bcffa)
 
 - Our chatbot answer (with contexts provided, as expected)
 ![image](https://github.com/user-attachments/assets/1913c33a-5a79-4622-b264-985db2184777)
+
+
+#### 4.2 Question 2:
+- Grounded context:
+![image](https://github.com/user-attachments/assets/9595dc30-5c5f-4455-8a8c-b9bffa4134c4)
+
+- Question:
+
+![image](https://github.com/user-attachments/assets/24ace8a4-f35e-4516-9143-0726793feaff)
+
+- Openai answer (no contexts provided, Openai gives hallucination answer)
+![image](https://github.com/user-attachments/assets/bb2108f7-690c-4a03-b6ee-7933e8fb6fc0)
+
+
+- Our chatbot answer (with contexts provided, as expected)
+![image](https://github.com/user-attachments/assets/dc018f46-6787-4b7a-8466-b55fb677ba53)
 
 
 
