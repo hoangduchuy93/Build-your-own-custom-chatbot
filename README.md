@@ -57,6 +57,7 @@ def get_relevant_context(prompt_template:str, question:str, df: pd.DataFrame, ma
     return context
 ```
 
+
 ```
 def prompt_and_context(question, df, max_token_count):
     """
@@ -87,3 +88,25 @@ def prompt_and_context(question, df, max_token_count):
 
     return prompt_template
 ```
+
+
+### 4. Custom Performance Demonstration
+This section evaluates our customized chatbot in two scenarios:
+- Directly ask OpenAI about the dataset, expecting it might provide no answer or a hallucinated answer.
+- Ask our chatbot the same question with context and compare its response to the grounded answer.
+
+#### 4.1 Question 1:
+- Grounded context:
+![image](https://github.com/user-attachments/assets/6d3b9d77-0ed4-4061-95f4-cb6db9c3adf8)
+
+- Question:
+![image](https://github.com/user-attachments/assets/deaeaa92-8405-4de4-87a4-a9436440f8c4)
+
+- Openai answer (no contexts provided, Openai can not find the answer)
+![image](https://github.com/user-attachments/assets/895f797e-b59d-4273-8957-24efa39bcffa)
+
+- Our chatbot answer (with contexts provided, as expected)
+![image](https://github.com/user-attachments/assets/1913c33a-5a79-4622-b264-985db2184777)
+
+
+
