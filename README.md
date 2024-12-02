@@ -33,8 +33,29 @@ Plus, any hallucinated answers from the LLM can be easily traced and verified ag
 - Select the relevant contexts based on cosine distance.
 - Create the prompt template to instruct LLM to give answer based on given context. Also instruct how LLM should answer with out-of-scope question.
 
-![image](https://github.com/user-attachments/assets/55b8fd39-b5e8-4e1c-ba21-25b88a9b8e29)
+```
+def get_relevant_context(prompt_template:str, question:str, df: pd.DataFrame, max_token_count: int):
+    """
+    This function will calculate total tokens sent to Openai
+    As long as the total token do not exceed the max token limit, append all context to list
+    Return the list of relevant context
+    """
+    
+    # Count total token
+    current_token_count = len(tokenizer.encode(prompt_template)) + len(tokenizer.encode(question))
 
+    # List of contexts to send to Openai
+    context = []
+    for text in get_cosine_distance_sorted(question, df)["text"].values:
+        text_token_count = len(tokenizer.encode(text))
+        current_token_count += text_token_count
+        # if not exceed max tokens, append to context
+        if current_token_count <= max_token_count:
+            context.append(text)
+        else:
+            break
+    return context
+```
 
 ```
 def prompt_and_context(question, df, max_token_count):
