@@ -100,6 +100,7 @@ This section evaluates our customized chatbot in two scenarios:
 ![image](https://github.com/user-attachments/assets/6d3b9d77-0ed4-4061-95f4-cb6db9c3adf8)
 
 - Question:
+
 ![image](https://github.com/user-attachments/assets/deaeaa92-8405-4de4-87a4-a9436440f8c4)
 
 - Openai answer (no contexts provided, Openai can not find the answer)
