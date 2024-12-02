@@ -16,3 +16,15 @@ Because it doesn't exist in the real world, it offers a perfect testing ground f
 Plus, any hallucinated answers from the LLM can be easily traced and verified against the grounded data.
 
 # II. Project steps
+### 1. Load the dataset
+![image](https://github.com/user-attachments/assets/b42a42ac-a225-48ba-b96b-cfdb60384c94)
+
+### 2. Context retrived
+- The text column combines all dataframe columns' content.
+- This column is embedded and compared to the user question using cosine distance.
+- Distances are sorted in ascending order; shorter distances indicate more relevant contexts
+
+```df['text'] = df['Name'] + " is " \
++ df['Description'] + ". This character appears in the " \
++ df['Medium'] + " in " + df['Setting']```
+
